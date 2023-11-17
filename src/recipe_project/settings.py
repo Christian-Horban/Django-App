@@ -56,7 +56,7 @@ ROOT_URLCONF = "recipe_project.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / 'recipes/templates/app'],
+        "DIRS": [BASE_DIR / "recipes/templates/app"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -121,6 +121,8 @@ STATIC_URL = "static/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
+
+LOGIN_URL = "users/login/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 

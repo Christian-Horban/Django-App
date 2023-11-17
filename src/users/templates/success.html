@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome to Our Recipe Collection</title>
+    <title>Logout Successful - Recipe Collection</title>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -38,34 +38,26 @@
         text-decoration: none;
         color: #007bff;
       }
+      .message {
+        margin-top: 20px;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      a {
+        text-decoration: none;
+        color: #007bff;
+        font-weight: bold;
+      }
     </style>
   </head>
   <body>
-    <div class="header-image">
-      <img
-        src="../../static/recipes/Images/home.jpeg"
-        alt="Recipe Collection Header"
-      />
-    </div>
     <div class="container">
-      <h1>Welcome to Our Recipe Collection!</h1>
-      <p>
-        Explore our vast collection of delicious recipes from around the world.
-      </p>
-      <div class="nav-links">
-        <a href="{% url 'recipe_overview' %}">Recipe Overview</a>
-
-        <!-- Search Form in Navigation Bar -->
-        <form
-          action="{% url 'search_results' %}"
-          method="get"
-          style="display: inline"
-        >
-          <input type="text" name="query" placeholder="Search ingredients..." />
-          <button type="submit">Search</button>
-        </form>
-        <!-- Logout Link -->
-        <a href="{% url 'logout' %}" style="margin-left: 20px">Logout</a>
+      <h1>See You Again!</h1>
+      <div class="message">
+        <p>You've successfully logged out.</p>
+        <p><a href="/">Click here</a> to log in again.</p>
       </div>
     </div>
   </body>
