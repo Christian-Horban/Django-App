@@ -3,22 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome to Our Recipe Collection</title>
+    <title>Recipe Overview</title>
     <style>
       body {
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
         background-color: #f3f3f3;
-        text-align: center;
+        text-align: center; /* Centers text */
       }
       .container {
-        margin-top: 50px; /* Adjust if more space needed */
+        margin-top: 50px; /* Adjust if more space is needed */
+        width: 80%; /* Adjust the width as needed */
+        margin-left: auto;
+        margin-right: auto;
       }
       h1 {
         color: #333;
       }
-      p {
+      p,
+      ul {
         color: #666;
       }
       .header-image {
@@ -38,6 +42,13 @@
         text-decoration: none;
         color: #007bff;
       }
+      ul {
+        list-style: none; /* Removes bullet points */
+        padding: 0; /* Removes default padding */
+      }
+      li {
+        margin-bottom: 5px; /* Spacing between list items */
+      }
     </style>
   </head>
   <body>
@@ -48,23 +59,17 @@
       />
     </div>
     <div class="container">
-      <h1>Welcome to Our Recipe Collection!</h1>
-      <p>
-        Explore our vast collection of delicious recipes from around the world.
-      </p>
-      <div class="nav-links">
-        <a href="{% url 'recipe_overview' %}">Recipe Overview</a>
-
-        <!-- Search Form in Navigation Bar -->
-        <form
-          action="{% url 'search_results' %}"
-          method="get"
-          style="display: inline"
-        >
-          <input type="text" name="query" placeholder="Search ingredients..." />
-          <button type="submit">Search</button>
-        </form>
-      </div>
+      <h1>Recipe List</h1>
+      <ul>
+        {% for recipe in recipes %}
+        <li>
+          <a href="{% url 'recipe_detail' pk=recipe.pk %}">{{ recipe.name }}</a>
+        </li>
+        {% empty %}
+        <li>No recipes available.</li>
+        {% endfor %}
+      </ul>
+      <a href="{% url 'home' %}">Back to Home</a>
     </div>
   </body>
 </html>
