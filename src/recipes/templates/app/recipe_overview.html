@@ -66,22 +66,35 @@
         margin: 0 10px; /* Spacing between buttons */
         max-width: 200px; /* Maximum width of buttons */
         box-sizing: border-box; /* Includes padding and border in the width */
+        margin-top: 10px;
       }
+
       .recipe-image {
-  max-width: 100%;
-  height: auto;
-  display: block; /* Ensure the image is not inline */
-  margin: 0 auto; /* Center the image in the container */
+    width: 300px;  /* Desired uniform width */
+    height: 200px; /* Desired uniform height */
+    object-fit: cover; /* This will ensure the image covers the area, cropping if necessary */
+    border-radius: 5px; /* Optional, for rounded corners */
+    display: block; /* Ensure the image is not inline */
+    margin: 0 auto; /* Center the image in the container */
 }
     </style>
   </head>
   <body>
-    <div class="header-image">
-      <!-- <img
+    <!-- <div class="header-image">
+      <img
         src="../../static/recipes/Images/home.jpeg"
         alt="Recipe Collection Header"
-      /> -->
+      />
+    </div> -->
+
+    <div>
+      <a href="{% url 'home' %}" class="nav-button">Back to Home</a>
+      <!-- Logout Link -->
+      <a href="{% url 'logout' %}" class="nav-button" style="margin-left: 20px"
+        >Logout</a
+      >
     </div>
+
     <div class="container">
       <h1>Recipe List</h1>
       {% for recipe in recipes %}
@@ -122,13 +135,7 @@
           alt="Cooking Time Line Chart"
         />
       </div>
-      <div class="difficulty-links"></div>
-      <br />
-      <a href="{% url 'home' %}" class="nav-button">Back to Home</a>
-      <!-- Logout Link -->
-      <a href="{% url 'logout' %}" class="nav-button" style="margin-left: 20px"
-        >Logout</a
-      >
+
     </div>
   </body>
 </html>
